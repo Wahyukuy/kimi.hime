@@ -1,25 +1,36 @@
-const gallery = document.getElementById("gallery");
-
-// Duplikat isi supaya seamless
-gallery.innerHTML += gallery.innerHTML;
-
-let x = 0;
-let y = 0;
-const speed = 0.5; // kecepatan sedang
-
-function animate() {
-    x -= speed;
-    y += speed;
-
-    gallery.style.transform = `rotate(-45deg) translate(${x}px, ${y}px)`;
-
-    // Reset ketika sudah lewat setengah panjang
-    if (Math.abs(x) > gallery.offsetWidth / 2) {
-        x = 0;
-        y = 0;
-    }
-
-    requestAnimationFrame(animate);
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-animate();
+body{
+    overflow:hidden;
+    background:#111;
+}
+
+/* Full layar */
+.wrapper{
+    width:100vw;
+    height:100vh;
+    display:flex;
+    align-items:center;
+    overflow:hidden;
+}
+
+/* Jalur foto */
+.track{
+    display:flex;
+    gap:20px;
+    transform: rotate(-20deg);
+    will-change: transform;
+}
+
+/* Foto */
+.track img{
+    height:60vh; /* memenuhi layar responsif */
+    width:auto;
+    object-fit:cover;
+    border:2px solid red;
+    flex-shrink:0;
+}
