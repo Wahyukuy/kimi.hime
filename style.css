@@ -1,37 +1,36 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-body {
-    background: #111;
-    overflow: hidden;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+body{
+    overflow:hidden;
+    background:#111;
 }
 
-.wrapper {
-    overflow: hidden;
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+/* Full layar */
+.wrapper{
+    width:100vw;
+    height:100vh;
+    display:flex;
+    align-items:center;
+    overflow:hidden;
 }
 
-.gallery {
-    display: grid;
-    grid-template-columns: repeat(6, 180px);
-    gap: 20px;
-    transform: rotate(-45deg);
+/* Jalur foto */
+.track{
+    display:flex;
+    gap:20px;
+    transform: rotate(-20deg);
+    will-change: transform;
 }
 
-.gallery img {
-    width: 180px;
-    height: 180px;
-    object-fit: cover;
-    border: 2px solid red;
+/* Foto */
+.track img{
+    height:60vh; /* memenuhi layar responsif */
+    width:auto;
+    object-fit:cover;
+    border:2px solid red;
+    flex-shrink:0;
 }
