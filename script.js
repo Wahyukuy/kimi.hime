@@ -1,36 +1,21 @@
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+const track = document.getElementById("track");
+
+// Duplicate isi supaya seamless
+track.innerHTML += track.innerHTML;
+
+let position = 0;
+const speed = 1; // kecepatan sedang
+
+function animate(){
+    position -= speed;
+    track.style.transform = `rotate(-20deg) translateX(${position}px)`;
+
+    // Reset halus saat setengah track habis
+    if(Math.abs(position) >= track.scrollWidth / 2){
+        position = 0;
+    }
+
+    requestAnimationFrame(animate);
 }
 
-body{
-    overflow:hidden;
-    background:#111;
-}
-
-/* Full layar */
-.wrapper{
-    width:100vw;
-    height:100vh;
-    display:flex;
-    align-items:center;
-    overflow:hidden;
-}
-
-/* Jalur foto */
-.track{
-    display:flex;
-    gap:20px;
-    transform: rotate(-20deg);
-    will-change: transform;
-}
-
-/* Foto */
-.track img{
-    height:60vh; /* memenuhi layar responsif */
-    width:auto;
-    object-fit:cover;
-    border:2px solid red;
-    flex-shrink:0;
-}
+animate();
