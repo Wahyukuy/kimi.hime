@@ -13,7 +13,6 @@ body {
     align-items: center;
 }
 
-/* Supaya tidak keluar layar */
 .wrapper {
     overflow: hidden;
     width: 100vw;
@@ -23,30 +22,16 @@ body {
     align-items: center;
 }
 
-/* Grid foto */
 .gallery {
     display: grid;
     grid-template-columns: repeat(6, 180px);
     gap: 20px;
-
     transform: rotate(-45deg);
-    animation: moveDiagonal 20s linear infinite;
 }
 
-/* Foto */
 .gallery img {
     width: 180px;
     height: 180px;
     object-fit: cover;
     border: 2px solid red;
-}
-
-/* Animasi bergerak ke kiri bawah */
-@keyframes moveDiagonal {
-    0% {
-        transform: rotate(-45deg) translate(0, 0);
-    }
-    100% {
-        transform: rotate(-45deg) translate(-400px, 400px);
-    }
 }
